@@ -23,7 +23,7 @@ const Header = () => {
       <AppBar position="static">
         <Toolbar className={classes.header}>
           <Typography variant="body1" className={classes.title}>
-            Covid-19 Tracker by Jvad
+            Covid-19
           </Typography>
         </Toolbar>
       </AppBar>
