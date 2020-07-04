@@ -36,8 +36,8 @@ const Chart = () => {
             {
               data: dailyData.map(({ deaths: { total } }) => total),
               label: "deaths",
-              borderColor: "#red",
-              backgroundColor: "rgba(255,0,0,0.5)",
+              borderColor: "red",
+              backgroundColor: "rgba(255,0,0,0.3)",
               fill: true,
             },
           ],

@@ -8,6 +8,7 @@ import moment from "moment";
 import CountUp from "react-countup";
 import UpdateIcon from "@material-ui/icons/Update";
 import { Typography, Grid } from "@material-ui/core";
+import { Bar } from "react-chartjs-2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   container: {
     boxSizing: "borderBox",
     padding: "20px",
+    maxWidth: "1000px",
+    margin: "0 auto",
+  },
+  chartCon: {
     maxWidth: "1000px",
     margin: "0 auto",
   },
@@ -46,10 +51,9 @@ const useStyles = makeStyles((theme) => ({
     // width: "100%",
     textAlign: "center",
     margin: "20px 0",
-    maxWidth: "1000px",
-    minWidth: "250px",
   },
 }));
+
 const Country = () => {
   const [countryData, setCountryData] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState({});
@@ -74,6 +78,24 @@ const Country = () => {
   const { confirmed, deaths, recovered, LastUpdated } = selectedCountry;
   //   console.log(deaths);
   const timeString = moment(LastUpdated).fromNow();
+  const barChart = confirmed ? (
+    <Bar
+      data={{
+        labels: ["Infected", "Deaths", "Recovered"],
+        datasets: [
+          {
+            label: "People",
+            backgroundColor: ["orange", "red", "green"],
+            data: [confirmed.value, recovered.value, deaths.value],
+          },
+        ],
+      }}
+      options={{
+        legend: { display: false },
+        title: { display: true, text: `Current State In ${selectedCountry}` },
+      }}
+    />
+  ) : null;
 
   if (!confirmed) {
     return (
@@ -176,6 +198,7 @@ const Country = () => {
         <UpdateIcon fontSize="small" /> Last Update {timeString}
         {/* {new Date(parseInt(updated, 10)).toString("MM/dd/yy HH:mm:ss")} */}
       </div>
+      <div className={classes.chartCon}>{barChart}</div>
     </>
   );
 };
