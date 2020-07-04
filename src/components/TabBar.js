@@ -33,8 +33,8 @@ const TabBar = () => {
           <Tab label="Country" />
         </Tabs>
       </div>
-      {value === 0 && <Cards />}
-      {value === 1 && <Country />}
+      {value === 1 && <Cards />}
+      {value === 0 && <Country />}
     </div>
   );
 };
