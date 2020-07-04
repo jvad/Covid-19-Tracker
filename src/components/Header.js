@@ -1,32 +1,21 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import cover from "./Cover.png";
 
 const useStyles = makeStyles((theme) => ({
-  header: {
-    backgroundColor: "#454355",
-    justifyContent: "center",
-    height: "100px",
-  },
-  title: {
-    fontSize: "2rem",
-    fontFamily: "'Vast Shadow', cursive",
+  image: {
+    textAlign: "center",
+    maxWidth: "100%",
+    // height: "auto",
+    // margin: "0 auto",
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
   return (
-    <div>
-      <AppBar position="static">
-        <Toolbar className={classes.header}>
-          <Typography variant="body1" className={classes.title}>
-            Covid-19
-          </Typography>
-        </Toolbar>
-      </AppBar>
+    <div className={classes.image}>
+      <img src={cover} alt="Covid Tracker By Jvad" />
     </div>
   );
 };

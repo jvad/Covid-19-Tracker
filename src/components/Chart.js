@@ -17,7 +17,6 @@ const Chart = () => {
       //   let { cases, deaths, recovered } = await response.json();
 
       let data = await response.json();
-      console.log(data);
       setDailyData(data);
     }
     getData();

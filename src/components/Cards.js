@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import moment from "moment";
-
+import Chart from "./Chart";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import CountUp from "react-countup";
 import UpdateIcon from "@material-ui/icons/Update";
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     boxSizing: "borderBox",
-    padding: "60px",
+    padding: "20px",
     maxWidth: "1000px",
     margin: "0 auto",
   },
@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   lastUpdate: {
-    fontSize: "1.5em",
-    maxWidth: "350px",
+    fontSize: "1rem",
+    maxWidth: "200px",
     margin: "0 auto",
   },
 }));
@@ -112,6 +112,7 @@ const Cards = () => {
         <UpdateIcon fontSize="small" /> Last Update {timeString}
         {/* {new Date(parseInt(updated, 10)).toString("MM/dd/yy HH:mm:ss")} */}
       </div>
+      <Chart />
     </>
   );
 };
