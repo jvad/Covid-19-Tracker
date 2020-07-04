@@ -39,8 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   lastUpdate: {
     fontSize: "1rem",
-    maxWidth: "200px",
-    margin: "0 auto",
+    textAlign: "center",
   },
 }));
 
