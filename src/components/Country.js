@@ -56,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Country = () => {
   const [countryData, setCountryData] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState({});
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [countryName, setCountryName] = useState("");
   useEffect(() => {
     async function getData() {
       const response = await fetch("https://covid19.mathdro.id/api/countries");
@@ -70,6 +71,7 @@ const Country = () => {
   }, [setCountryData]);
 
   const handleCountryChange = async (event) => {
+    setCountryName(event.target.value);
     const data = await getCountryData(event.target.value);
     setSelectedCountry(data);
   };
@@ -86,13 +88,13 @@ const Country = () => {
           {
             label: "People",
             backgroundColor: ["orange", "red", "green"],
-            data: [confirmed.value, recovered.value, deaths.value],
+            data: [confirmed.value, deaths.value, recovered.value],
           },
         ],
       }}
       options={{
         legend: { display: false },
-        title: { display: true, text: `Current State In ${selectedCountry}` },
+        title: { display: true, text: `Current State In ${countryName}` },
       }}
     />
   ) : null;
